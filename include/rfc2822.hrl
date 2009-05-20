@@ -1,0 +1,1 @@
+-record(rfc2822, {headers, bodylines}).
