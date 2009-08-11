@@ -7,6 +7,7 @@ plugin-include.mk:
 
 distclean: clean
 	rm -rf $(DIST_DIR)
+	rm -f plugin-include.mk
 
 debian-package: clean
 	tar -cf debian-package.tar .
