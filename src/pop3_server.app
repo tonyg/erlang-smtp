@@ -6,6 +6,7 @@
 	    pop3_server,
 	    pop3_server_session
 	   ]},
+  {registered, []},
   {applications,[kernel,stdlib]},
   {mod, {pop3_server, []}},
   {env, [{listen_host, "0.0.0.0"},

@@ -6,6 +6,7 @@
 	    smtp_server,
 	    smtp_server_session
 	   ]},
+  {registered, []},
   {applications,[kernel,stdlib]},
   {mod, {smtp_server, []}},
   {env, [{listen_host, "0.0.0.0"},
