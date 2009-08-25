@@ -23,7 +23,7 @@
 %% SOFTWARE.
 %%---------------------------------------------------------------------------
 
--module(smtp_server).
+-module(smtp_server_test).
 
 -export([start/0, stop/0, start/2, stop/1]).
 
@@ -36,6 +36,7 @@ stop() -> application:stop(?MODULE).
 start(normal, []) ->
     {ok, Host} = application:get_env(listen_host),
     {ok, Port} = application:get_env(listen_port),
+    io:format("Starting SMTP test server on ~s:~p~n", [Host, Port]),
     generic_tcp_server:start_link(smtp_server_session, Host, Port,
 				  [list,
 				   {active, false},

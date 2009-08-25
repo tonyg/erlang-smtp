@@ -1,2 +1,2 @@
 ^ebin/.*\.beam$
-^plugin-include\.mk$
+^ebin/.*\.app$
