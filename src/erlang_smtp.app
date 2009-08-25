@@ -11,4 +11,4 @@
   {registered,[]},
   {applications,[kernel,stdlib]},
   {env,[]}
- ]}
+ ]}.
