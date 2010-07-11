@@ -110,7 +110,7 @@ scan_listing_line1(MsgNum, M) ->
     io_lib:format("~p ~p", [MsgNum, length(M)]).
 
 format_message_for_transmission(M) ->
-    {ok, Lines} = regexp:split(M, "\r\n"),
+    {ok, Lines} = re:split(M, "\r\n", [{return, list}]),
     lists:map(fun byte_stuff_line/1, Lines).
 
 byte_stuff_line("." ++ Line) ->

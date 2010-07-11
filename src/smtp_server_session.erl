@@ -61,18 +61,18 @@ reset_buffers(State) ->
 		  data_buffer = []}.
 
 address_to_path(Address) ->
-    case regexp:match(Address, "[^@]+@") of
-	{match, 1, Length} ->
-	    {string:substr(Address, 1, Length - 1), string:substr(Address, Length + 1)};
-	_ ->
+    case re:run(Address, "[^@]+@") of
+        {match, [{0, Length}]} ->
+            {string:substr(Address, 1, Length - 1), string:substr(Address, Length + 1)};
+        nomatch ->
 	    Address
     end.
 
 split_path_from_params(Str) ->
-    case regexp:match(Str, "<[^>]*>") of
-	{match, Start, Length} ->
-	    Address = string:substr(Str, Start + 1, Length - 2),
-	    Params = string:strip(string:substr(Str, Start + Length), left),
+    case re:run(Str, "<[^>]*>") of
+	{match, ZeroStart, Length} ->
+	    Address = string:substr(Str, ZeroStart + 2, Length - 2),
+	    Params = string:strip(string:substr(Str, ZeroStart + Length + 1), left),
 	    {address_to_path(Address), Params};
 	_ ->
 	    case httpd_util:split(Str, " ", 2) of
@@ -84,10 +84,10 @@ split_path_from_params(Str) ->
     end.
 
 parse_path_and_parameters(PrefixRegexp, Data) ->
-    case regexp:first_match(Data, PrefixRegexp) of
+    case re:run(Data, PrefixRegexp) of
 	nomatch ->
 	    unintelligible;
-	{match, 1, Length} ->
+	{match, [{0, Length}]} ->
 	    PathAndParams = string:strip(string:substr(Data, Length + 1), left),
 	    {Path, Params} = split_path_from_params(PathAndParams),
 	    {ok, Path, Params}
