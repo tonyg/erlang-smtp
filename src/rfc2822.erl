@@ -68,7 +68,7 @@ parse([], Key, Value, Message) ->
 parse([Line | Rest], Key, Value, Message) ->
     case is_header_separator(Line) of
 	true ->
-	    finish_message(Message#rfc2822{bodylines = Rest});
+	    finish_message(finish_header(Key, Value, Message#rfc2822{bodylines = Rest}));
 	false ->
 	    case Line of
 		[FirstChar | _RestChars] when FirstChar =< 32 ->
