@@ -38,8 +38,9 @@ problems that this code addresses, see [Vagabond's impressive
 
 ## Things that should probably be done at some point
 
- - Follow [djb's advice on reading and writing 822/822bis
-   messages](http://cr.yp.to/immhf.html)
+ - Follow djb's advice on [reading and writing 822/822bis
+   messages](http://cr.yp.to/immhf.html) and [general email
+   infrastructure](http://cr.yp.to/im.html)
 
 ## Licensing
 
