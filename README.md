@@ -36,6 +36,11 @@ For a different (and much richer!) approach to the same kinds of
 problems that this code addresses, see [Vagabond's impressive
 `gen_smtp`](http://github.com/Vagabond/gen_smtp).
 
+## Things that should probably be done at some point
+
+ - Follow [djb's advice on reading and writing 822/822bis
+   messages](http://cr.yp.to/immhf.html)
+
 ## Licensing
 
 Copyright (c) 2007--2010 Tony Garnock-Jones <tonygarnockjones@gmail.com>  
