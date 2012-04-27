@@ -224,7 +224,7 @@ terminate(_Reason, #session{socket = Sock}) ->
     ok.
 
 code_change(_OldVsn, State, _Extra) ->
-    State.
+    {ok, State}.
 
 handle_call(Request, _From, State) ->
     {stop, {bad_call, Request}, State}.

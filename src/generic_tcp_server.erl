@@ -67,7 +67,7 @@ terminate(_Reason, State) ->
     ok.
 
 code_change(_OldVsn, State, _Extra) ->
-    State.
+    {ok, State}.
 
 handle_call(_Request, _From, State) ->
     {reply, ignored, State}.
